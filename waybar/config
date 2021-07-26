@@ -1,0 +1,48 @@
+{
+	"layer": "top",
+	"height": 20,
+
+	"modules-left": [
+		"sway/workspaces", 
+		"sway/mode"
+	],
+
+	"modules-center": [
+		"sway/window"
+	],
+
+	"modules-right": [
+		"pulseaudio",
+		"backlight",
+		"battery",
+		"clock"
+	],
+
+	"sway/window": {
+		"max-length": 50
+	},
+
+	"pulseaudio": {
+		"format": "V: {volume}%",
+		"scroll-step": 1,
+	},
+
+	"backlight": {
+		"device": "intel_backlight",
+		"format": "L: {percent}%",
+		"on-click": "brightnessctl -q set 10%-",
+		"on-click-right": "brightnessctl -q set +10%",
+		"on-scroll-up": "brightnessctl -q set 1%",
+		"on-scroll-down": "brightnessctl -q set 1%-"
+	},
+
+	"battery": {
+		"format": "B: {capacity}%"
+	},
+
+	"clock": {
+		"format-alt": "{:%d/%m/%Y %R}",
+		"tooltip-format": "{:%d/%m/%Y %R}"
+	}
+}
+

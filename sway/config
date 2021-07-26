@@ -1,0 +1,207 @@
+#
+# Variables
+#
+	# Logo key
+	set $mod Mod4
+
+	# Direction keys
+	set $left h
+	set $down j
+	set $up k
+	set $right l
+
+	# Terminal emulator
+	set $term alacritty
+
+	# Application launcher
+	set $menu wofi -ia --lines=8 --width=400 \
+		--location=top --yoffset=16 \
+		--prompt=Search --show=drun
+
+	# Bar
+	set $bar waybar
+
+#
+# Graphics
+#
+	# Colors
+	set $clr_background #080f11
+	set $clr_light #d5d8da
+	set $clr_dark #5b5858
+	set $clr_accent #e95678
+
+	# Background
+	output * bg $clr_background solid_color
+
+	# TitleBorder - TitleBackground - Text - Indicator - Border
+	client.focused $clr_dark $clr_light $clr_dark $clr_accent $clr_light	
+	client.focused_inactive $clr_light $clr_dark $clr_light $clr_dark $clr_dark
+	client.unfocused $clr_light $clr_dark $clr_light $clr_dark $clr_dark
+
+	# Titlebar
+	title_align center
+	titlebar_padding 3
+	titlebar_border_thickness 0
+
+	# Borders
+	default_border pixel 3
+	default_floating_border pixel 3
+	smart_borders on
+	for_window [app_id=".*"] border pixel 3
+
+	# Gaps
+	gaps inner 6
+	smart_gaps on
+
+	# Font
+	font "Input Sans Narrow 11px"
+
+#
+# General
+#
+	# Open a terminal
+	bindsym $mod+Return exec $term
+
+	# Open application launcher
+	bindsym $mod+d exec $menu 
+
+	# Take a screenshot
+	bindsym $mod+F1 exec grim
+	
+	# Kill focused window
+	bindsym $mod+Shift+q kill
+
+	# Modifier for dragging and resizing with mouse
+	floating_modifier $mod normal
+
+	# Reload sway config
+	bindsym $mod+Shift+c reload
+
+	# Exit sway
+	bindsym $mod+Shift+e exec swaynag -t warning -m 'Exit sway?' -b 'Yes' 'swaymsg exit'
+
+	# Disable mouse acceleration
+	input * accel_profile flat
+
+#
+# Layout
+#
+	# Split container
+	bindsym $mod+b splith
+	bindsym $mod+v splitv
+
+	# Switch container style
+	bindsym $mod+s layout stacking
+	bindsym $mod+w layout tabbed
+	bindsym $mod+e layout toggle split
+
+	# Toggle fullscreen
+	bindsym $mod+f fullscreen
+
+	# Toggle tiling/floating
+	bindsym $mod+Shift+space floating toggle
+
+	# Toggle focus tiling/floating
+	bindsym $mod+space focus mode_toggle
+
+	# Focus parent
+	bindsym $mod+a focus parent
+
+#
+# Change focus and move windows
+#
+	# Change focus with direction keys
+	bindsym $mod+$left focus left
+	bindsym $mod+$down docus down
+	bindsym $mod+$up focus up
+	bindsym $mod+$right focus right
+
+	# Change focus with arrow keys
+	bindsym $mod+Left focus left
+	bindsym $mod+Down focus down
+	bindsym $mod+Up focus up
+	bindsym $mod+Right focus right
+
+	# Move focused window with direction keys
+	bindsym $mod+Shift+$left move left
+	bindsym $mod+Shift+$down move down
+	bindsym $mod+Shift+$up move up
+	bindsym $mod+Shift+$right move right
+
+	# Move focused window with arrow keys
+	bindsym $mod+Shift+Left move left
+	bindsym $mod+Shift+Down move down
+	bindsym $mod+Shift+Up move up
+	bindsym $mod+Shift+Right move right
+
+#
+# Workspaces
+#
+	# Switch to workspace
+	bindsym $mod+1 workspace number 1
+	bindsym $mod+2 workspace number 2
+	bindsym $mod+3 workspace number 3
+	bindsym $mod+4 workspace number 4
+	bindsym $mod+5 workspace number 5
+	bindsym $mod+6 workspace number 6
+	bindsym $mod+7 workspace number 7
+	bindsym $mod+8 workspace number 8
+	bindsym $mod+9 workspace number 9
+	bindsym $mod+0 workspace number 10
+
+	# Move focused container to workspace
+	bindsym $mod+Shift+1 move container to workspace number 1
+	bindsym $mod+Shift+2 move container to workspace number 2
+	bindsym $mod+Shift+3 move container to workspace number 3
+	bindsym $mod+Shift+4 move container to workspace number 4
+	bindsym $mod+Shift+5 move container to workspace number 5
+	bindsym $mod+Shift+6 move container to workspace number 6
+	bindsym $mod+Shift+7 move container to workspace number 7
+	bindsym $mod+Shift+8 move container to workspace number 8
+	bindsym $mod+Shift+9 move container to workspace number 9
+	bindsym $mod+Shift+0 move container to workspace number 10
+
+#
+# Scratchpad
+#
+	# Move to scratchpad
+	bindsym $mod+Shift+minus move scratchpad
+
+	# Fetch from scratchpad
+	bindsym $mod+minus scratchpad show
+
+#
+# Resize mode
+#
+	# Resize amount
+	set $resize_delta 10px
+
+	# Resize mode keybinding
+	bindsym $mod+r mode "resize"
+
+	mode "resize" {
+		# Resize with direction keys
+		bindsym $left resize shrink width $resize_delta
+		bindsym $down resize grow height $resize_delta
+		bindsym $up resize shrink height $resize_delta
+		bindsym $right resize grow width $resize_delta
+
+		# Resize with arrow keys
+		bindsym Left resize shrink width $resize_delta
+		bindsym Down resize grow height $resize_delta
+		bindsym Up resize shrink height $resize_delta
+		bindsym Right resize grow width $resize_delta
+
+		# Return to default mode
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
+	}
+	
+#
+# Apply settings
+#
+	# Bar
+	bar {
+		swaybar_command $bar
+	}
+
