@@ -205,3 +205,4 @@
 		swaybar_command $bar
 	}
 
+include /etc/sway/config.d/*
