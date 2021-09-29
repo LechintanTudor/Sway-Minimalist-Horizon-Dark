@@ -1,6 +1,6 @@
 {
 	"layer": "top",
-	"height": 20,
+	"height": 22,
 
 	"modules-left": [
 		"sway/workspaces", 
@@ -23,7 +23,7 @@
 	},
 
 	"pulseaudio": {
-		"format": "V: {volume}%",
+		"format": "V {volume}%",
 		"scroll-step": 1,	
 		"on-click": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
 		"on-click-right": "pactl set-sink-volume @DEFAULT_SINK@ +5%"
@@ -31,7 +31,7 @@
 
 	"backlight": {
 		"device": "intel_backlight",
-		"format": "L: {percent}%",
+		"format": "L {percent}%",
 		"on-click": "brightnessctl -q set 10%-",
 		"on-click-right": "brightnessctl -q set +10%",
 		"on-scroll-up": "brightnessctl -q set +1%",
@@ -39,7 +39,7 @@
 	},
 
 	"battery": {
-		"format": "B: {capacity}%"
+		"format": "B {capacity}%"
 	},
 
 	"clock": {

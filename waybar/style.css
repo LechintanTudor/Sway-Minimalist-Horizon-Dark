@@ -2,13 +2,15 @@
 	border: None;
 	border-radius: 0px;
 	font-family: Input Sans Narrow;
-	font-size: 11px;
+	font-size: 14px;
 	min-height: 0px;
 }
 
 window#waybar {
 	background-color: #1c1e26;
 }
+
+window#
 
 #window,
 #workspaces {
@@ -17,6 +19,7 @@ window#waybar {
 
 #workspaces button {
 	padding: 0px 4px;
+	border-radius: 4px;
 	background-color: #1c1e26;
 	color: #ffffff;
 }
@@ -36,6 +39,7 @@ window#waybar {
 #clock,
 #pulseaudio {
 	padding: 0px 6px;
+	border-radius: 4px;
 	margin: 0px 3px;
 	background-color: #d5d8da;
 	color: #000000;

@@ -1,5 +1,6 @@
 #outer-box {
 	border: 2px solid #d5d8da;
+	border-radius: 4px;
 }
 
 #window {
@@ -17,19 +18,21 @@
 #input {
 	margin: 4px;
 	border: 2px solid #d5d8da;
-	border-radius: 0px;
+	border-radius: 4px;
 	background-color: #1c1e26;
 }
 
 #scroll {
-	margin: 2px;
+	margin: 2px 2px 3px 2px;
 }
 
 #entry {
+	padding: 2px 4px;
 	margin: 1px 2px;
 }
 
 #entry:selected {
 	background-color: #d5d8da;
+	border-radius: 4px;
 }
 

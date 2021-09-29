@@ -1,3 +1,5 @@
+live_config_reload: false
+
 window:
   padding:
     x: 3
@@ -34,7 +36,7 @@ colors:
 
 # Font (Input Mono Narrow)
 font:
-  size: 9
+  size: 11 
 
   normal:
     family: Input Mono

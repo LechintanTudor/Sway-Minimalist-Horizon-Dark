@@ -1,0 +1,7 @@
+*
+!.gitignore
+!/alacritty/
+!/sway/
+!/waybar/
+!/wofi/
+
